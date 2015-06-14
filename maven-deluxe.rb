@@ -20,6 +20,11 @@ class MavenDeluxe < Formula
     url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.2/maven-profiler-2.2-shaded.jar'
     sha1 '201b49b6ebc2438ff61fc1d74cbefefa8256efa3'
   end
+  
+  resource 'maven-core-patch' do
+    url 'http://jeanchristophegay.com/binaries/maven-core-3.3.3.jar'
+    sha1 'cca6f23c26aeb2cec2f869fc3cc54716c86906f5'
+  end
 
   depends_on :java
 
@@ -48,10 +53,12 @@ class MavenDeluxe < Formula
     inreplace "#{libexec}/conf/logging/logback.xml" do |s|
       s.gsub! "[%replace(%level){'WARN','WARNING'}] ", ""
     end
+    # https://github.com/jcgay/maven-color/issues/10
+    resource("maven-core-patch").stage { (libexec/"lib").install Dir["*"] }
     
     resource("maven-notifier").stage { (libexec/"lib/ext").install Dir["*"] }
     
-    resource("maven-profiler").stage { (libexec/"lib/ext").install Dir["*"] }
+    resource("maven-profiler").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
