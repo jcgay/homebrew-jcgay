@@ -17,3 +17,9 @@ If maven is already installed:
 then:
 
     brew install maven-deluxe
+    
+# [Send-Notification](https://github.com/jcgay/send-notification)
+
+A CLI to send desktop notifications backed by various implementations (Growl, notify-send, Snarl, OS X notification center, etc)
+
+    brew install send-notification
