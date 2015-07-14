@@ -4,7 +4,7 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   sha256 "3a8dc4a12ab9f3607a1a2097bbab0150c947ad6719d8f1bb6d5b47d0fb0c4779"
-  version "3.3.3-1"
+  version "3.3.3-2"
 
   resource 'maven-color' do
     url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.1/maven-color-logback-1.1-bundle.tar.gz'
@@ -12,8 +12,8 @@ class MavenDeluxe < Formula
   end
   
   resource 'maven-notifier' do
-    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.4/maven-notifier-1.4-shaded.jar'
-    sha1 'c48a2d62bbc0a86d907147724dae48613f26ca52'
+    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.5/maven-notifier-1.5-shaded.jar'
+    sha1 '5b4ef6bf3e51382d74a77c92baede33592156610'
   end
   
   resource 'maven-profiler' do
