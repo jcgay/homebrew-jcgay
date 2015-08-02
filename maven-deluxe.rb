@@ -4,16 +4,16 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   sha256 "3a8dc4a12ab9f3607a1a2097bbab0150c947ad6719d8f1bb6d5b47d0fb0c4779"
-  version "3.3.3-3"
+  version "3.3.3-4"
 
   resource 'maven-color' do
     url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.1/maven-color-logback-1.1-bundle.tar.gz'
     sha1 '2b4ae0c3f83a73843053a882519ebc2ef572a8d2'
   end
   
-  resource 'maven-notifier-1.6' do
-    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.6/maven-notifier-1.6-shaded.jar'
-    sha1 '574ff2c76dcfa590f7f4570b86fbaf170326b1a4'
+  resource 'maven-notifier-1.7' do
+    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.7/maven-notifier-1.7-shaded.jar'
+    sha1 'dc95569ca9551f1b2df29cfe91a236be15e750ce'
   end
   
   resource 'maven-profiler' do
@@ -56,7 +56,7 @@ class MavenDeluxe < Formula
     # https://github.com/jcgay/maven-color/issues/10
     resource("maven-core-patch").stage { (libexec/"lib").install Dir["*"] }
     
-    resource("maven-notifier-1.6").stage { (libexec/"lib/ext").install Dir["*"] }
+    resource("maven-notifier-1.7").stage { (libexec/"lib/ext").install Dir["*"] }
     
     resource("maven-profiler").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
