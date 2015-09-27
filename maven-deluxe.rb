@@ -4,21 +4,21 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   sha256 "3a8dc4a12ab9f3607a1a2097bbab0150c947ad6719d8f1bb6d5b47d0fb0c4779"
-  version "3.3.3-4"
+  version "3.3.3-5"
 
-  resource 'maven-color' do
-    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.1/maven-color-logback-1.1-bundle.tar.gz'
-    sha1 '2b4ae0c3f83a73843053a882519ebc2ef572a8d2'
+  resource 'maven-color-1.2' do
+    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.2/maven-color-logback-1.2-bundle.tar.gz'
+    sha1 '0042549352d6f7ea36de2558d6e12ba7ea15679e'
   end
   
-  resource 'maven-notifier-1.7' do
-    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.7/maven-notifier-1.7-shaded.jar'
-    sha1 'dc95569ca9551f1b2df29cfe91a236be15e750ce'
+  resource 'maven-notifier-1.8' do
+    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.8/maven-notifier-1.8-shaded.jar'
+    sha1 '04176f1be1123cdc1ad7db95d51949cf29802d79'
   end
   
-  resource 'maven-profiler' do
-    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.2/maven-profiler-2.2-shaded.jar'
-    sha1 '201b49b6ebc2438ff61fc1d74cbefefa8256efa3'
+  resource 'maven-profiler-2.3' do
+    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.3/maven-profiler-2.3-shaded.jar'
+    sha1 'd88a218d2a00c47f25508144455604a0bded3e86'
   end
   
   resource 'maven-core-patch' do
@@ -49,16 +49,16 @@ class MavenDeluxe < Formula
     
     # Remove slf4j-simple
     rm_f Dir[libexec/"lib/slf4j-simple*"]
-    resource("maven-color").stage { system "cp", "-r", ".", libexec }
+    resource("maven-color-1.2").stage { system "cp", "-r", ".", libexec }
     inreplace "#{libexec}/conf/logging/logback.xml" do |s|
       s.gsub! "[%replace(%level){'WARN','WARNING'}] ", ""
     end
     # https://github.com/jcgay/maven-color/issues/10
     resource("maven-core-patch").stage { (libexec/"lib").install Dir["*"] }
     
-    resource("maven-notifier-1.7").stage { (libexec/"lib/ext").install Dir["*"] }
+    resource("maven-notifier-1.8").stage { (libexec/"lib/ext").install Dir["*"] }
     
-    resource("maven-profiler").stage { (libexec/"lib/ext").install Dir["*"] }    
+    resource("maven-profiler-2.3").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
