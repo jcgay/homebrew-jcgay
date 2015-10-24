@@ -4,7 +4,7 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.3/binaries/apache-maven-3.3.3-bin.tar.gz"
   sha256 "3a8dc4a12ab9f3607a1a2097bbab0150c947ad6719d8f1bb6d5b47d0fb0c4779"
-  version "3.3.3-5"
+  version "3.3.3-6"
 
   resource 'maven-color-1.2' do
     url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.2/maven-color-logback-1.2-bundle.tar.gz'
@@ -16,9 +16,9 @@ class MavenDeluxe < Formula
     sha1 '04176f1be1123cdc1ad7db95d51949cf29802d79'
   end
   
-  resource 'maven-profiler-2.3' do
-    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.3/maven-profiler-2.3-shaded.jar'
-    sha1 'd88a218d2a00c47f25508144455604a0bded3e86'
+  resource 'maven-profiler-2.4' do
+    url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.4/maven-profiler-2.4-shaded.jar'
+    sha1 '25e6a2d42bb82a8ebf995ac998e111a9a07a6cec'
   end
   
   resource 'maven-core-patch' do
@@ -58,7 +58,7 @@ class MavenDeluxe < Formula
     
     resource("maven-notifier-1.8").stage { (libexec/"lib/ext").install Dir["*"] }
     
-    resource("maven-profiler-2.3").stage { (libexec/"lib/ext").install Dir["*"] }    
+    resource("maven-profiler-2.4").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
