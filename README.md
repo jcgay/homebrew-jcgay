@@ -23,3 +23,9 @@ then:
 A CLI to send desktop notifications backed by various implementations (Growl, notify-send, Snarl, OS X notification center, etc)
 
     brew install send-notification
+
+# [chtignore](https://github.com/jcgay/chtignore)
+
+Print `.gitignore` template from [https://github.com/github/gitignore](https://github.com/github/gitignore) in standard output.
+
+    brew install chtignore
