@@ -4,11 +4,11 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   sha256 "6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82"
-  version "3.3.9-0"
+  version "3.3.9-1"
 
-  resource 'maven-color-1.2' do
-    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.2/maven-color-logback-1.2-bundle.tar.gz'
-    sha1 '0042549352d6f7ea36de2558d6e12ba7ea15679e'
+  resource 'maven-color-1.3' do
+    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.3/maven-color-logback-1.3-bundle.tar.gz'
+    sha1 '3c3f20afdefd08dd0221e63f40e1a1e7de9f1bb6'
   end
   
   resource 'maven-notifier-1.8' do
@@ -44,13 +44,9 @@ class MavenDeluxe < Formula
     
     # Remove slf4j-simple
     rm_f Dir[libexec/"lib/slf4j-simple*"]
-    resource("maven-color-1.2").stage { system "cp", "-r", ".", libexec }
-    inreplace "#{libexec}/conf/logging/logback.xml" do |s|
-      s.gsub! "[%replace(%level){'WARN','WARNING'}] ", ""
-    end
-    
+
+    resource("maven-color-1.3").stage { system "cp", "-r", ".", libexec }    
     resource("maven-notifier-1.8").stage { (libexec/"lib/ext").install Dir["*"] }
-    
     resource("maven-profiler-2.4").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
 
