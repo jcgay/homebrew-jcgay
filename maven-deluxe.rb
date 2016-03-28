@@ -8,17 +8,17 @@ class MavenDeluxe < Formula
 
   resource 'maven-color-1.4' do
     url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.4/maven-color-logback-1.4-bundle.tar.gz'
-    sha1 'de77078ae16cc9c83a92028ca20a23da0a08222f'
+    sha256 '406cf35bf284aa5edd8f982a38540fa7d38edcda25ca9ae9ffa75feeb0555167'
   end
   
   resource 'maven-notifier-1.9' do
     url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.9/maven-notifier-1.9-shaded.jar'
-    sha1 '47c818102836b46b25b744deb31d171018c40292'
+    sha256 'cede56b7e2f267f5188b6905f7813ede6064310e4fa01315bc4c3bf8dde51721'
   end
   
   resource 'maven-profiler-2.4' do
     url 'http://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.4/maven-profiler-2.4-shaded.jar'
-    sha1 '25e6a2d42bb82a8ebf995ac998e111a9a07a6cec'
+    sha256 '2ede9a5f5646ba853dd1926142b0f69fdfabdb08926bf403746fcd4f7f433eed'
   end
 
   depends_on :java
