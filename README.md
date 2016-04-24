@@ -29,3 +29,9 @@ A CLI to send desktop notifications backed by various implementations (Growl, no
 Print `.gitignore` template from [https://github.com/github/gitignore](https://github.com/github/gitignore) in standard output.
 
     brew install chtignore
+
+# [notify.sh](https://github.com/jcgay/notify.sh)
+
+Send desktop notification when a command finishes.
+
+    brew install notify-sh
