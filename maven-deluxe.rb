@@ -4,11 +4,11 @@ class MavenDeluxe < Formula
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   sha256 "6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82"
-  version "3.3.9-5"
+  version "3.3.9-6"
 
-  resource 'maven-color-1.5.0' do
-    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.5.0/maven-color-logback-1.5.0-bundle.tar.gz'
-    sha256 'da2c0fa904a4c67b929703c9aedf7e022512c4df14ef24535aa2a6aa5947b287'
+  resource 'maven-color-1.6.0' do
+    url 'http://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.6.0/maven-color-logback-1.6.0-bundle.tar.gz'
+    sha256 'c6f109712061c55608db0aa45abfe127faf7ea08ca19dd04adae5be2247afc44'
   end
   
   resource 'maven-notifier-1.9.1' do
@@ -45,7 +45,7 @@ class MavenDeluxe < Formula
     # Remove slf4j-simple
     rm_f Dir[libexec/"lib/slf4j-simple*"]
 
-    resource("maven-color-1.5.0").stage { system "cp", "-r", ".", libexec }    
+    resource("maven-color-1.6.0").stage { system "cp", "-r", ".", libexec }    
     resource("maven-notifier-1.9.1").stage { (libexec/"lib/ext").install Dir["*"] }
     resource("maven-profiler-2.4").stage { (libexec/"lib/ext").install Dir["*"] }    
   end
