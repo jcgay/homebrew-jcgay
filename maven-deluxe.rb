@@ -3,7 +3,7 @@ class MavenDeluxe < Formula
   homepage "https://github.com/jcgay/homebrew-jcgay#maven-deluxe"
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.tar.gz"
-  version "3.3.9-7"
+  version "3.3.9-8"
   sha256 "6e3e9c949ab4695a204f74038717aa7b2689b1be94875899ac1b3fe42800ff82"
 
   bottle :unneeded
@@ -12,9 +12,9 @@ class MavenDeluxe < Formula
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
-  resource "maven-color-1.6.0" do
-    url "https://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-logback/1.6.0/maven-color-logback-1.6.0-bundle.tar.gz"
-    sha256 "c6f109712061c55608db0aa45abfe127faf7ea08ca19dd04adae5be2247afc44"
+  resource "maven-color-2.0.0-beta" do
+    url "https://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-gossip/2.0.0-beta/maven-color-gossip-2.0.0-beta-bundle.tar.gz"
+    sha256 "bbea2ea462e1404d2088caf3e7a6a2a27d2e3284d6de4d61afc06cfd6a310e41"
   end
 
   resource "maven-notifier-1.9.1" do
@@ -49,7 +49,7 @@ class MavenDeluxe < Formula
     # Remove slf4j-simple
     rm_f Dir[libexec/"lib/slf4j-simple*"]
 
-    resource("maven-color-1.6.0").stage { system "cp", "-r", ".", libexec }
+    resource("maven-color-2.0.0-beta").stage { (libexec/"lib/ext").install Dir["ext/*"] }
     resource("maven-notifier-1.9.1").stage { (libexec/"lib/ext").install Dir["*"] }
     resource("maven-profiler-2.5").stage { (libexec/"lib/ext").install Dir["*"] }
   end
