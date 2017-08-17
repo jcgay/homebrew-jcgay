@@ -35,3 +35,9 @@ Print `.gitignore` template from [https://github.com/github/gitignore](https://g
 Send desktop notification when a command finishes.
 
     brew install notify-sh
+    
+# [parallel-git-repo](https://github.com/jcgay/parallel-git-repo)
+
+Run command on multiple Git repositories in parallel
+
+    brew install parallel-git-repo
