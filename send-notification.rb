@@ -1,9 +1,9 @@
 class SendNotification < Formula
   desc "Command Line to send notifications"
   homepage "https://github.com/jcgay/send-notification"
-  url "https://bintray.com/artifact/download/jcgay/maven/fr/jcgay/send-notification/send-notification-cli/0.15.0/send-notification-cli-0.15.0-binaries.zip"
-  version "0.15.0"
-  sha256 "a786a4a754b0bbfef4854ac5673f288465aa77b8bab1cf790432d18e1e85bef9"
+  url "https://bintray.com/artifact/download/jcgay/maven/fr/jcgay/send-notification/send-notification-cli/0.15.1/send-notification-cli-0.15.1-binaries.zip"
+  version "0.15.1"
+  sha256 "75487c6f999e618707b609280dbcb82a286760ca16fa2942344555b642cd465e"
   
   def install
     # Remove windows files
