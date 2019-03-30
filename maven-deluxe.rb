@@ -3,12 +3,12 @@ class MavenDeluxe < Formula
   homepage "https://github.com/jcgay/homebrew-jcgay#maven-deluxe"
   url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz"
   mirror "https://archive.apache.org/dist/maven/maven-3/3.6.0/binaries/apache-maven-3.6.0-bin.tar.gz"
-  version "3.6.0-0"
+  version "3.6.0-1"
   sha256 "6a1b346af36a1f1a491c1c1a141667c5de69b42e6611d3687df26868bc0f4637"
 
   bottle :unneeded
 
-  depends_on :java => "1.7+"
+  depends_on :java => "1.8+"
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
@@ -17,9 +17,9 @@ class MavenDeluxe < Formula
     sha256 "047b7e154f359d0c27a8160b07406494dda761c97943f40ed7c6ef5ea4cc38d8"
   end
 
-  resource "maven-notifier-1.10.1" do
-    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/1.10.1/maven-notifier-1.10.1.jar"
-    sha256 "a5707c87b8ca5f6b2cec052fd1d6e66dc4a866615ccc2b7140afe5d8e6ed9f48"
+  resource "maven-notifier-2.0.0" do
+    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/2.0.0/maven-notifier-2.0.0.jar"
+    sha256 "52c8210714aebe6b7e0445b6c93a6fdac67f5376e5e01332bfdc0490d11e147b"
   end
 
   resource "maven-profiler-2.6" do
@@ -50,7 +50,7 @@ class MavenDeluxe < Formula
     rm_f Dir[libexec/"lib/maven-slf4j-provider*"]
 
     resource("maven-color-2.1.1").stage { (libexec/"lib/ext").install Dir["ext/*"] }
-    resource("maven-notifier-1.10.1").stage { (libexec/"lib/ext").install Dir["*"] }
+    resource("maven-notifier-2.0.0").stage { (libexec/"lib/ext").install Dir["*"] }
     resource("maven-profiler-2.6").stage { (libexec/"lib/ext").install Dir["*"] }
   end
 
