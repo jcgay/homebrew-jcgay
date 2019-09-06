@@ -1,10 +1,10 @@
 class MavenDeluxe < Formula
   desc "Java-based project management with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#maven-deluxe"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.1/binaries/apache-maven-3.6.1-bin.tar.gz"
-  version "3.6.1-1"
-  sha256 "2528c35a99c30f8940cc599ba15d34359d58bec57af58c1075519b8cd33b69e7"
+  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
+  version "3.6.2-0"
+  sha256 "3fbc92d1961482d6fbd57fbf3dd6d27a4de70778528ee3fb44aa7d27eb32dfdc"
 
   bottle :unneeded
 
