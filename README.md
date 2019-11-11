@@ -41,3 +41,9 @@ Send desktop notification when a command finishes.
 Run command on multiple Git repositories in parallel
 
     brew install parallel-git-repo
+
+# [gw](https://github.com/jcgay/gw)
+
+A Gradle interactive CLI
+
+    brew install gw
