@@ -1,10 +1,10 @@
 class MavenDeluxe < Formula
   desc "Java-based project management with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#maven-deluxe"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz"
-  version "3.6.2-0"
-  sha256 "3fbc92d1961482d6fbd57fbf3dd6d27a4de70778528ee3fb44aa7d27eb32dfdc"
+  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
+  version "3.6.3-0"
+  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
 
   bottle :unneeded
 
@@ -22,9 +22,9 @@ class MavenDeluxe < Formula
     sha256 "884d81c7b3c1584d1577a48bd6eaaa8f1f0960aa2fbe142a7ab732ca0a702832"
   end
 
-  resource "maven-profiler-2.6" do
-    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/2.6/maven-profiler-2.6-shaded.jar"
-    sha256 "fac9cdec4ba23eb1d73b8514b601aeae752f8657d140a862870f49172d599221"
+  resource "maven-profiler-3.0" do
+    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/3.0/maven-profiler-3.0-shaded.jar"
+    sha256 "dd74443f1f7fcea414ad133b8b6e86e9c3d6c5271a6301b1519b3662bddf13b8"
   end
 
   def install
@@ -51,7 +51,7 @@ class MavenDeluxe < Formula
 
     resource("maven-color-2.1.1").stage { (libexec/"lib/ext").install Dir["ext/*"] }
     resource("maven-notifier-2.1.0").stage { (libexec/"lib/ext").install Dir["*"] }
-    resource("maven-profiler-2.6").stage { (libexec/"lib/ext").install Dir["*"] }
+    resource("maven-profiler-3.0").stage { (libexec/"lib/ext").install Dir["*"] }
   end
 
   test do
