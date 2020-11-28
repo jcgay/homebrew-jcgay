@@ -8,7 +8,7 @@ class MavenDeluxe < Formula
 
   bottle :unneeded
 
-  depends_on :java => "1.8+"
+  depends_on "openjdk"
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
