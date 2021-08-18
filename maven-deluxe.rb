@@ -1,10 +1,15 @@
 class MavenDeluxe < Formula
   desc "Java-based project management with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#maven-deluxe"
-  url "https://www.apache.org/dyn/closer.cgi?path=maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.6.3/binaries/apache-maven-3.6.3-bin.tar.gz"
-  version "3.6.3-0"
-  sha256 "26ad91d751b3a9a53087aefa743f4e16a17741d3915b219cf74112bf87a438c5"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.8.2/binaries/apache-maven-3.8.2-bin.tar.gz"
+  sha256 "8dae10b09feb7b8e4c079fc39a11f3296ab630fd9bc44ecea0fb288cec7770f7"
+  version "3.8.2-1"
+  
+  livecheck do
+    url "https://maven.apache.org/download.cgi"
+    regex(/href=.*?apache-maven[._-]v?(\d+(?:\.\d+)+)-bin\.t/i)
+  end
 
   bottle :unneeded
 
@@ -12,18 +17,18 @@ class MavenDeluxe < Formula
 
   conflicts_with "mvnvm", :because => "also installs a 'mvn' executable"
 
-  resource "maven-color-2.1.1" do
-    url "https://dl.bintray.com/jcgay/maven/com/github/jcgay/maven/color/maven-color-gossip/2.1.1/maven-color-gossip-2.1.1-bundle-without-jansi.tar.gz"
-    sha256 "047b7e154f359d0c27a8160b07406494dda761c97943f40ed7c6ef5ea4cc38d8"
+  resource "maven-color-3.0.1" do
+    url "https://repo1.maven.org/maven2/fr/jcgay/maven/color/maven-color-gossip/3.0.1/maven-color-gossip-3.0.1-bundle-without-jansi.tar.gz"
+    sha256 "3e5bac325b89afc82c96504d8dde35755650042125fbd5af1ee965c315ee43b6"
   end
 
   resource "maven-notifier-2.1.0" do
-    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-notifier/2.1.0/maven-notifier-2.1.0.jar"
+    url "https://search.maven.org/remotecontent?filepath=fr/jcgay/maven/maven-notifier/2.1.0/maven-notifier-2.1.0.jar"
     sha256 "884d81c7b3c1584d1577a48bd6eaaa8f1f0960aa2fbe142a7ab732ca0a702832"
   end
 
   resource "maven-profiler-3.0" do
-    url "https://dl.bintray.com/jcgay/maven/fr/jcgay/maven/maven-profiler/3.0/maven-profiler-3.0-shaded.jar"
+    url "https://search.maven.org/remotecontent?filepath=fr/jcgay/maven/maven-profiler/3.0/maven-profiler-3.0-shaded.jar"
     sha256 "dd74443f1f7fcea414ad133b8b6e86e9c3d6c5271a6301b1519b3662bddf13b8"
   end
 
@@ -49,7 +54,7 @@ class MavenDeluxe < Formula
     # Remove slf4j-simple
     rm_f Dir[libexec/"lib/maven-slf4j-provider*"]
 
-    resource("maven-color-2.1.1").stage { (libexec/"lib/ext").install Dir["ext/*"] }
+    resource("maven-color-3.0.1").stage { (libexec/"lib/ext").install Dir["ext/*"] }
     resource("maven-notifier-2.1.0").stage { (libexec/"lib/ext").install Dir["*"] }
     resource("maven-profiler-3.0").stage { (libexec/"lib/ext").install Dir["*"] }
   end
