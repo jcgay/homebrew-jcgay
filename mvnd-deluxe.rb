@@ -15,8 +15,6 @@ class MvndDeluxe < Formula
     url :stable
   end
 
-  bottle :unneeded
-
   depends_on "openjdk" => :recommended
   
   resource "maven-notifier-2.1.2" do
