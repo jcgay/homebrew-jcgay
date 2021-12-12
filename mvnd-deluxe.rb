@@ -1,14 +1,14 @@
 class MvndDeluxe < Formula
   desc "Maven Daemon with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#mvnd-deluxe"
-  version "0.5.2-0"
+  version "0.7.1-0"
   on_macos do
-    url "https://github.com/mvndaemon/mvnd/releases/download/0.5.2/mvnd-0.5.2-darwin-amd64.zip"
-    sha256 "1cb17e9d192a801d69634305bd6e15a9f805a257fc813df793d0e6fb16630635"
+    url "https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-darwin-amd64.zip"
+    sha256 "7a0de6107b9e19290ccc6853ea93a087e5fe1558f64eab66a9e803a03afedc3c"
   end
   on_linux do
-    url "https://github.com/mvndaemon/mvnd/releases/download/0.5.2/mvnd-0.5.2-linux-amd64.zip"
-    sha256 "55201c347a95a6df7600d988cc3ab71323f5eef627a1a3e9808ed2212c5a0987"
+    url "https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-linux-amd64.zip"
+    sha256 "ac0b276d4d7472d042ddaf3ad46170e5fcb9350981af91af6c5c13e602a07393"
   end
 
   livecheck do
