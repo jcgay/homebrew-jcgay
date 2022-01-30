@@ -1,7 +1,7 @@
 class MvndDeluxe < Formula
   desc "Maven Daemon with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#mvnd-deluxe"
-  version "0.7.1-0"
+  version "0.7.1-1"
   on_macos do
     url "https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-darwin-amd64.zip"
     sha256 "7a0de6107b9e19290ccc6853ea93a087e5fe1558f64eab66a9e803a03afedc3c"
@@ -22,9 +22,9 @@ class MvndDeluxe < Formula
     sha256 "4f400379553e12e3307b35b43bd005e80b14043d1787015d3a9ce32eb27c3bb3"
   end
 
-  resource "maven-profiler-3.1.1" do
-    url "https://repo1.maven.org/maven2/fr/jcgay/maven/maven-profiler/3.1.1/maven-profiler-3.1.1-shaded.jar"
-    sha256 "32bd0004c86ba82c83ad8b86035e5520ccc87307c2089c946f573cc6ebc47de0"
+  resource "maven-profiler-3.2" do
+    url "https://repo1.maven.org/maven2/fr/jcgay/maven/maven-profiler/3.2/maven-profiler-3.2-shaded.jar"
+    sha256 "089e7ce16e05d0028189eda5dea77ecc0d675acd862839e2a4d8864bb05e8399"
   end
 
   def install
@@ -50,7 +50,7 @@ class MvndDeluxe < Formula
     FileUtils.ln_sf(daemon, libexec + 'daemon')
     
     resource("maven-notifier-2.1.2").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
-    resource("maven-profiler-3.1.1").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
+    resource("maven-profiler-3.2").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
   end
 
   test do
