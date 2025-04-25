@@ -1,14 +1,20 @@
 class MvndDeluxe < Formula
-  desc "Maven Daemon with awesomeness"
+  desc "Apache Maven Daemon with awesomeness"
   homepage "https://github.com/jcgay/homebrew-jcgay#mvnd-deluxe"
-  version "0.7.1-1"
+  version "2.0.0-rc-3-0"
   on_macos do
-    url "https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-darwin-amd64.zip"
-    sha256 "7a0de6107b9e19290ccc6853ea93a087e5fe1558f64eab66a9e803a03afedc3c"
+    on_intel do
+      url "https://downloads.apache.org/maven/mvnd/2.0.0-rc-3/maven-mvnd-2.0.0-rc-3-darwin-amd64.zip"
+      sha256 "59cac90cf2083e418d8b0e7296b5a48e5e29589c25c3bb94b76cb8da18b43bc7"
+    end
+    on_arm do
+      url "https://downloads.apache.org/maven/mvnd/2.0.0-rc-3/maven-mvnd-2.0.0-rc-3-darwin-aarch64.zip"
+      sha256 "3dd88c7d70bb1b5ebfc8fc98fe39f97c23c3b3c5c5bf0faea49baf2f485c9705"
+    end
   end
   on_linux do
-    url "https://github.com/mvndaemon/mvnd/releases/download/0.7.1/mvnd-0.7.1-linux-amd64.zip"
-    sha256 "ac0b276d4d7472d042ddaf3ad46170e5fcb9350981af91af6c5c13e602a07393"
+    url "https://downloads.apache.org/maven/mvnd/2.0.0-rc-3/maven-mvnd-2.0.0-rc-3-linux-amd64.zip"
+    sha256 "f770cf7122b54950a3173b0870f3c9f0706ad8899e2cfd5fce40774a421e9cd5"
   end
 
   livecheck do
@@ -22,19 +28,16 @@ class MvndDeluxe < Formula
     sha256 "4f400379553e12e3307b35b43bd005e80b14043d1787015d3a9ce32eb27c3bb3"
   end
 
-  resource "maven-profiler-3.2" do
-    url "https://repo1.maven.org/maven2/fr/jcgay/maven/maven-profiler/3.2/maven-profiler-3.2-shaded.jar"
-    sha256 "089e7ce16e05d0028189eda5dea77ecc0d675acd862839e2a4d8864bb05e8399"
+  resource "maven-profiler-3.3" do
+    url "https://repo1.maven.org/maven2/fr/jcgay/maven/maven-profiler/3.3/maven-profiler-3.3-shaded.jar"
+    sha256 "d235bc3f1d75d3eefde5627f33e7255c3d2f4476bad7f3c60fed6056a54f6f87"
   end
 
   def install
     # Remove windows files
     rm_f Dir["bin/*.cmd"]
 
-    # Replace mvnd by using mvnd.sh
-    if Hardware::CPU.arm?
-      mv "bin/mvnd.sh", "bin/mvnd", force: true
-    end
+    bash_completion.install "bin/mvnd-bash-completion.bash"
 
     libexec.install Dir["*"]
 
@@ -50,7 +53,7 @@ class MvndDeluxe < Formula
     FileUtils.ln_sf(daemon, libexec + 'daemon')
     
     resource("maven-notifier-2.1.2").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
-    resource("maven-profiler-3.2").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
+    resource("maven-profiler-3.3").stage { (libexec/"mvn/lib/ext").install Dir["*"] }
   end
 
   test do
