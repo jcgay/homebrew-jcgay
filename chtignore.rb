@@ -1,8 +1,8 @@
 class Chtignore < Formula
   desc "Print .gitignore template from https://github.com/github/gitignore in standard output"
   homepage "https://github.com/jcgay/chtignore"
-  url "https://bintray.com/artifact/download/jcgay/tools/chtignore_1.1.0_darwin_amd64.zip"
-  sha256 "64b6491b3e90c673ca1c1183959f56f6bc8e4d76e39f3fe583431cfb9a42fc69"
+  url "https://github.com/jcgay/chtignore/releases/download/v1.1.0/chtignore_1.1.0_darwin_amd64.zip"
+  sha256 "1dd6488e8f8fb13203c1991bdba0aa615b2946e3667dd7176fe68c2697dc42b9"
   version "1.1.0"
 
   def install
