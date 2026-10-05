@@ -5,12 +5,12 @@
 class Glane < Formula
   desc "Full-text and semantic search over your saved tech-watch posts"
   homepage "https://github.com/jcgay/glane"
-  version "1.1.1"
+  version "1.2.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/jcgay/glane/releases/download/v1.1.1/glane_1.1.1_darwin_amd64.tar.gz"
-      sha256 "0a7c1301fb42f79456202b1bfe3d5554119f8c1932ed7c842f07a1cc9334dfd2"
+      url "https://github.com/jcgay/glane/releases/download/v1.2.0/glane_1.2.0_darwin_amd64.tar.gz"
+      sha256 "ad72590f92a8a717c59eaa5a026b01e87b236b952c13698cdc393014d66f3716"
 
       define_method(:install) do
         bin.install "glane"
@@ -18,8 +18,8 @@ class Glane < Formula
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/jcgay/glane/releases/download/v1.1.1/glane_1.1.1_darwin_arm64.tar.gz"
-      sha256 "d8c54f408464150106fa9adc26db41c0b2f6caed284f3246bfee093e85374285"
+      url "https://github.com/jcgay/glane/releases/download/v1.2.0/glane_1.2.0_darwin_arm64.tar.gz"
+      sha256 "3b17ab116fe4ff3c209ae3141cf2d1331516b9ff287b4e26238111ec52ed779c"
 
       define_method(:install) do
         bin.install "glane"
@@ -30,16 +30,16 @@ class Glane < Formula
 
   on_linux do
     if Hardware::CPU.intel? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jcgay/glane/releases/download/v1.1.1/glane_1.1.1_linux_amd64.tar.gz"
-      sha256 "99c788cee4987bed677eafd1dd32945ae151b05209eba2ef48e62b45460d83bc"
+      url "https://github.com/jcgay/glane/releases/download/v1.2.0/glane_1.2.0_linux_amd64.tar.gz"
+      sha256 "122316875b9a96366edbcea0ab496bcf39a680033d202763e3e2caa44d546735"
       define_method(:install) do
         bin.install "glane"
         fish_completion.install "completions/glane.fish"
       end
     end
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/jcgay/glane/releases/download/v1.1.1/glane_1.1.1_linux_arm64.tar.gz"
-      sha256 "273b241ceeb4ec567704ec6da1d5bd6745409791d413f09a6f48728d3068f668"
+      url "https://github.com/jcgay/glane/releases/download/v1.2.0/glane_1.2.0_linux_arm64.tar.gz"
+      sha256 "450ba8067ccfb006ba560a993752c2d88f9d351368b94da890c73e0d0cbf3975"
       define_method(:install) do
         bin.install "glane"
         fish_completion.install "completions/glane.fish"
